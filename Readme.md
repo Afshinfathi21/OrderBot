@@ -60,4 +60,4 @@ What you need to install the software:
 ### Running the Bot
 
 ```bash
-python bot.py # Or whatever your main bot file is called
+python copier_bot.py
