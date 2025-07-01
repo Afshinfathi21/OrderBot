@@ -1,63 +1,65 @@
-# OrderBot
-for Copy & Print Services**
+# 🖨️ Telegram Printing Platform
 
-OrderBot is an efficient Telegram bot built to simplify and automate the process of submitting and managing copy and print orders. Say goodbye to manual order forms and fragmented communication! With OrderBot, users can easily specify their printing requirements, upload documents, and track their order status directly within a Telegram chat.
+A complete solution for managing print and copy orders through Telegram.  
+Customers can easily submit files for printing, choose a nearby shop, and have their orders processed automatically by the shop’s desktop app.
 
-## Features
+---
 
-* **Easy Order Submission:** Users can initiate new print/copy orders through simple conversational commands.
-* **File Upload Support:** Securely upload documents (PDFs, images, etc.) directly via Telegram.
-* **Customizable Order Options:**
-    * Specify paper size (A4, A3, etc.)
-    * Choose print type (color, black & white)
-    * Select single-sided or double-sided printing
-    * Define number of copies
-    * [Add any other specific options your bot will support, e.g., binding, lamination]
-* **Order Confirmation & Tracking:** Receive immediate confirmation and potentially status updates (e.g., "Received," "In Progress," "Ready for Pickup").
-* **Admin/Shop Notifications:** New order details are automatically sent to a designated Telegram "shop channel," ensuring the print shop team is immediately notified of incoming requests.
-* **User-Friendly Interface:** Intuitive and guided conversation flow for a smooth user experience.
-* [Add any other unique features your bot will have!]
+## 📌 Features
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-What you need to install the software:
-
-* Python 3.8+ (or your chosen programming language/runtime)
-* `pip` (Python package installer)
-* A Telegram Bot API Token (get one from BotFather on Telegram)
-
-### Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/Afshinfathi21/OrderBot.git]
-    cd OrderBot
-    ```
-
-2.  **Create a virtual environment (recommended for Python projects):**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-3.  **Install dependencies:**
-    ```bash
-    pip install python-telegram-bot
-    ```
+✅ **Telegram Bot** — Customers upload files and place orders directly in Telegram.  
+✅ **Central API Server** — Flask server handles shops, orders, and authentication.  
+✅ **Shop Desktop App** — PyQt app for shop owners to:
+  - Authenticate with an API key
+  - Retrieve pending orders
+  - Download files directly from Telegram
+  - Mark orders as printed
 
 
-4.  **Configuration:**
-    * Create a `.env` file in the root directory of the project for sensitive information:
-        ```
-        TELEGRAM_BOT_TOKEN="YOUR_TELEGRAM_BOT_TOKEN_HERE"
-        ORDER_CHANNEL_ID="YOUR-CHANNEL-ID" # Where notifications will go
-        ```
+---
 
-### Running the Bot
 
-```bash
-python copier_bot.py
+---
+
+## 🚀 How It Works
+
+1. **Customers** send files to the Telegram bot and choose a print shop.
+2. **Orders** are stored in the central database with file info (`file_id`).
+3. **Shop owner’s app** connects to the Flask API, authenticates with their API key, and fetches their pending orders.
+4. The app uses the **Telegram Bot API** to download the file
+5. Shop marks the order as `completed` in the API so it doesn’t reprint.
+
+---
+
+## 🔑 Authentication
+
+- Shops are identified by a unique **API key**.
+- The API key must be included as a `Bearer` token in request headers
+
+---
+
+## ⚙️ Deployment
+
+- **Bot + Flask API**: Runs on same server [PythonAnywhere](https://www.pythonanywhere.com/).
+- **Database**: SQLite (shared by the bot and API server).
+- **Desktop app**: PyQt5 — runs on shop owner’s Windows PC and communicates with the Flask API.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python 3**
+- **Flask** — for the REST API
+- **PyQt5** — for the desktop app GUI
+- **Telegram Bot API** — to handle file uploads and downloads
+- **SQLite** — lightweight database for shops and orders
+
+---
+
+
+## 🤝 Contributing
+
+Contributions, ideas, or pull requests are welcome!  
+Feel free to open an issue to suggest improvements.
+
+
