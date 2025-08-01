@@ -29,7 +29,7 @@ Customers can easily submit files for printing, choose a nearby shop, and have t
 4. The app uses the **Telegram Bot API** to download the file
 5. Shop marks the order as `completed` in the API so it doesn’t reprint.
 
-(assets/app.png)
+![How It Works Diagram](assets/app.png)
 
 
 ---
